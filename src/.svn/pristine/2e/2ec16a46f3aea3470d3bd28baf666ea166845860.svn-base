@@ -1,0 +1,13 @@
+-- vim:set ft=lua:
+
+-- Starts the test program and all applications from the required modules list
+-- independently without creating any communication channels.
+
+local L4 = require("L4");
+
+for k,v in ipairs(REQUIRED_MODS) do
+  L4.default_loader:start({}, "rom/" .. v);
+end
+
+L4.default_loader:start({}, "rom/" .. TEST_PROG);
+
